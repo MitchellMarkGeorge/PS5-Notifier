@@ -7,8 +7,8 @@ const client = require('twilio')(sid, token);
 async function sendMessage(retailer) {
     try {
         await client.messages.create({
-            from: "+16138006983",
-            to: "+18197127964",
+            from: process.env.TWILIO_NUMBER,
+            to: process.env.PHONE_NUMBER,
             body: `Alert! ${retailer} might have PS5 in stock!`
         })
     } catch (e) {
